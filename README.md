@@ -26,7 +26,7 @@ hp.visualize(images, column=3, fig_size=(20,10))
 ```
 
 
-![png](output_5_0.png)
+![png](./README_Images/output_5_0.png)
 
 
 #### Checking out the brighten function 
@@ -58,7 +58,7 @@ hp.visualize(bright_images, column=3)
 ```
 
 
-![png](output_8_0.png)
+![png](./README_Images/output_8_0.png)
 
 
 #### Let's darken a few images now
@@ -78,7 +78,7 @@ hp.visualize(dark_images, column=3)
 ```
 
 
-![png](output_10_0.png)
+![png](./README_Images/output_10_0.png)
 
 
 
@@ -88,7 +88,7 @@ hp.visualize(dark_images, column=3)
 ```
 
 
-![png](output_11_0.png)
+![png](./README_Images/output_11_0.png)
 
 
 #### But what if you just want some random brightness or darkness in the images. Well try out the random_brightness function which receives an image or an image array
@@ -108,7 +108,7 @@ hp.visualize(dark_bright_images, column=3)
 ```
 
 
-![png](output_13_0.png)
+![png](./README_Images/output_13_0.png)
 
 
 #### What about adding some shadows to the images.
@@ -133,7 +133,7 @@ hp.visualize(shadowy_images, column=3)
 ```
 
 
-![png](output_16_0.png)
+![png](./README_Images/output_16_0.png)
 
 
 
@@ -143,7 +143,7 @@ hp.visualize(shadowy_images, column=3)
 ```
 
 
-![png](output_17_0.png)
+![png](./README_Images/output_17_0.png)
 
 
 #### Now let's add some snow
@@ -163,7 +163,7 @@ hp.visualize(snowy_images, column=3)
 ```
 
 
-![png](output_20_0.png)
+![png](./README_Images/output_20_0.png)
 
 
 
@@ -173,7 +173,7 @@ hp.visualize(snowy_images, column=3)
 ```
 
 
-![png](output_21_0.png)
+![png](./README_Images/output_21_0.png)
 
 
 
@@ -183,7 +183,7 @@ hp.visualize(snowy_images, column=3)
 ```
 
 
-![png](output_22_0.png)
+![png](./README_Images/output_22_0.png)
 
 
 #### and now some rain
@@ -212,7 +212,7 @@ hp.visualize(rainy_images, column=3)
 ```
 
 
-![png](output_25_0.png)
+![png](./README_Images/output_25_0.png)
 
 
 
@@ -222,7 +222,7 @@ hp.visualize(rainy_images, column=3)
 ```
 
 
-![png](output_26_0.png)
+![png](./README_Images/output_26_0.png)
 
 
 
@@ -232,7 +232,7 @@ hp.visualize(rainy_images, column=3)
 ```
 
 
-![png](output_27_0.png)
+![png](./README_Images/output_27_0.png)
 
 
 **Note:** drop_length and drop_width values are overriden when rain_type is not None
@@ -252,7 +252,7 @@ hp.visualize(foggy_images, column=3)
 ```
 
 
-![png](output_30_0.png)
+![png](./README_Images/output_30_0.png)
 
 
 
@@ -262,7 +262,7 @@ hp.visualize(foggy_images, column=3)
 ```
 
 
-![png](output_31_0.png)
+![png](./README_Images/output_31_0.png)
 
 
 
@@ -272,7 +272,7 @@ hp.visualize(foggy_images, column=3)
 ```
 
 
-![png](output_32_0.png)
+![png](./README_Images/output_32_0.png)
 
 
 #### what about some gravels on the road now ?
@@ -294,7 +294,7 @@ hp.visualize(bad_road_images, column=3)
 ```
 
 
-![png](output_35_0.png)
+![png](./README_Images/output_35_0.png)
 
 
 
@@ -304,7 +304,7 @@ hp.visualize(bad_road_images, column=3)
 ```
 
 
-![png](output_36_0.png)
+![png](./README_Images/output_36_0.png)
 
 
 ### add_sun_flare
@@ -330,7 +330,7 @@ hp.visualize(flare_images, column=3)
 ```
 
 
-![png](output_38_0.png)
+![png](./README_Images/output_38_0.png)
 
 
 
@@ -341,7 +341,7 @@ hp.visualize(flare_images, column=3)
 ```
 
 
-![png](output_39_0.png)
+![png](./README_Images/output_39_0.png)
 
 
 ### add_speed
@@ -359,7 +359,7 @@ hp.visualize(speedy_images, column=3)
 ```
 
 
-![png](output_41_0.png)
+![png](./README_Images/output_41_0.png)
 
 
 
@@ -369,7 +369,7 @@ hp.visualize(speedy_images, column=3)
 ```
 
 
-![png](output_42_0.png)
+![png](./README_Images/output_42_0.png)
 
 
 ### add_autumn
@@ -385,7 +385,7 @@ hp.visualize(fall_images, column=3)
 ```
 
 
-![png](output_44_0.png)
+![png](./README_Images/output_44_0.png)
 
 
 #### If a series of augmentations is required from above types augment_random function can be handy
@@ -409,7 +409,7 @@ hp.visualize(aug_images,column=3,fig_size=(20,20))
 ```
 
 
-![png](output_47_0.png)
+![png](./README_Images/output_47_0.png)
 
 
 
@@ -419,7 +419,7 @@ hp.visualize(aug_images,column=3,fig_size=(20,20))
 ```
 
 
-![png](output_48_0.png)
+![png](./README_Images/output_48_0.png)
 
 
 
@@ -429,7 +429,7 @@ hp.visualize(aug_images,column=3,fig_size=(20,10))
 ```
 
 
-![png](output_49_0.png)
+![png](./README_Images/output_49_0.png)
 
 
 
@@ -439,7 +439,7 @@ hp.visualize(aug_images,column=3,fig_size=(20,10))
 ```
 
 
-![png](output_50_0.png)
+![png](./README_Images/output_50_0.png)
 
 
 #### Performance statistics
