@@ -47,7 +47,7 @@ hp.visualize(bright_images, column=3)
 ```
 
 
-![png](output_7_0.png)
+![png](./README_Images/output_7_0.png)
 
 
 
