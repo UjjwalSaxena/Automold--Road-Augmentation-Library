@@ -688,6 +688,7 @@ def autumn_process(image):
                 image_hls[j:j+step,i:i+step,2]=255
     return rgb(image_hls,'hls')
 
+
 def add_autumn(image):
     verify_image(image)
 
@@ -704,12 +705,56 @@ def add_autumn(image):
 
     return image_RGB
 
+def fliph(image): ##function to flip the image on horizontal axis
+    verify_image(image)
+    
+    if(is_list(image)):
+        image_RGB=[]
+        image_list=image
+        for img in image_list:
+            image_RGB.append(cv2.flip(img,0))
+    else:
+        image_RGB= cv2.flip(image,0)
+    return image_RGB
+
+def flipv(image): ##function to flip the image on vertical axis
+    verify_image(image)
+    
+    if(is_list(image)):
+        image_RGB=[]
+        image_list=image
+        for img in image_list:
+            image_RGB.append(cv2.flip(img,1))
+    else:
+        image_RGB= cv2.flip(image,1)
+    return image_RGB
+
+def random_flip(image): ##function to flip the image on horizontal axis
+    verify_image(image)
+    
+    if(is_list(image)):
+        image_RGB=[]
+        image_list=image
+        for img in image_list:
+            p= random.uniform(0,1)
+            if(p>0.5):
+                image_RGB.append(cv2.flip(img,0))
+            else:
+                image_RGB.append(cv2.flip(img,1))
+    else:
+        p= random.uniform(0,1)
+        if(p>0.5):
+            image_RGB=cv2.flip(image,0)
+        else:
+            image_RGB=cv2.flip(image,1)
+    return image_RGB
+
 err_aug_type='wrong augmentation function is defined'
 err_aug_list_type='aug_types should be a list of string function names'
 err_aug_volume='volume type can only be "same" or "expand"'
 def augment_random(image, aug_types="", volume='expand' ):
     
-    aug_types_all=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn"]
+    aug_types_all=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip"]
     if aug_types=="":
         aug_types=aug_types_all
     output=[]
