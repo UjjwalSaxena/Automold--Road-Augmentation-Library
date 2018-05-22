@@ -439,6 +439,32 @@ hp.visualize(flipped_images, column=3)
 ![png](./README_Images/random_flip.png)
 
 
+### add_manhole
+
+**parameters**
+
+image: image or image list
+
+center: center of the ellipse (x,y), default: bottom center of the image
+
+color: rgb tuple, default: if type parameter not defined: (67,70,75), else: default color mentioned in type.
+
+height vertical dimension of the hole, int , default: 25th portion of the image height.
+
+width: horizontal dimension of the hole, int, default: 3/25th portion of the image height.
+
+type: values in 'closed','open', default: 'closed'
+
+
+```python
+manhole_images= am.add_manhole(images[0:3]) 
+hp.visualize(manhole_images, column=3)
+```
+
+
+![png](./README_Images/manhole.png)
+
+
 #### If a series of augmentations is required from above types augment_random function can be handy
 
 ### augment_random
@@ -497,7 +523,7 @@ hp.visualize(aug_images,column=3,fig_size=(20,10))
 
 
 ```python
-aug_types=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip"]
+aug_types=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip","add_manhole"]
 dict_time={}
 import time
 for aug_type in aug_types:
@@ -518,21 +544,22 @@ print('-----------------------')
 print('Total time taken to create ',len(aug_types)*len(images),' augmented images:', '{0:.2f}s'.format(tot))
 ```
 
-    Average Time taken per augmentaion function to process 1 image:
-    add_shadow 0.02s
-    random_flip 0.00s
-    add_speed 0.16s
-    add_sun_flare 0.08s
-    add_rain 0.04s
-    random_brightness 0.05s
-    add_fog 0.30s
-    add_snow 0.05s
-    add_gravel 0.03s
-    add_autumn 0.23s
-    -----------------------
-    Total no. of augmented images created: 90
-    -----------------------
-    Total time taken to create  90  augmented images: 8.61s
+            Average Time taken per augmentaion function to process 1 image:
+            add_rain 0.02s
+            add_sun_flare 0.09s
+            add_fog 0.37s
+            add_speed 0.20s
+            random_brightness 0.05s
+            add_shadow 0.01s
+            random_flip 0.00s
+            add_manhole 0.01s
+            add_autumn 0.31s
+            add_gravel 0.04s
+            add_snow 0.06s
+            -----------------------
+            Total no. of augmented images created: 99
+            -----------------------
+            Total time taken to create  99  augmented images: 10.42s
 
     
 
