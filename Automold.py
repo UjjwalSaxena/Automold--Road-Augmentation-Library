@@ -749,12 +749,78 @@ def random_flip(image): ##function to flip the image on horizontal axis
             image_RGB=cv2.flip(image,1)
     return image_RGB
 
+# def edges(image,threshold1=100, threshold2=150): ##function to flip the image on horizontal axis
+#     verify_image(image)
+    
+#     if(is_list(image)):
+#         image_RGB=[]
+#         image_list=image
+#         for img in image_list:
+#             image_RGB.append(cv2.Canny(img,threshold1,threshold2))
+#     else:
+#         image_RGB=cv2.Canny(img,threshold1,threshold2)
+#     return image_RGB
+
+def manhole_process(image,center,height,width,src_color=(0,0,0)):
+    overlay= image.copy()
+    output= image.copy()
+#     cv2.ellipse(overlay, center =center,box=None,color =src_color)
+    cv2.ellipse(overlay, center, (width,height), 0, 0, 360, src_color, -1)
+#     cv2.circle(overlay, center, radius, src_color, -1)
+    alp=1
+    cv2.addWeighted(overlay, alp, output, 1 -alp ,0, output)
+    return output
+
+err_invalid_center_manhole="center should be in the format (x,y)"
+err_invalid_height_width_manhole="height and width should be positive integers."
+def add_manhole(image,center=-1,color=(120,120,120),height=1,width=1, type='closed'): ##function to flip the image on horizontal axis
+    verify_image(image)
+
+    if(center!=-1):
+        if not(is_tuple(center) and is_numeric_list_or_tuple(center) and len(center)==2):
+            raise Exception(err_invalid_center_manhole)
+    if not (is_numeric(height) and is_numeric(width) and height>0 and width>0):
+        raise Exception(err_invalid_height_width_manhole)
+    if color==(120,120,120):
+        if type=='closed':
+            color=(67,70,75)
+        elif type=='open':
+            color=(0,0,0)
+        
+    if(is_list(image)):
+        image_RGB=[]
+        image_list=image
+        for img in image_list:
+            height_t=height
+            width_t=width
+            center_t=center
+            if height==1:
+                height_t=img.shape[0]//25
+            if width==1:
+                width_t=int(img.shape[0]*3//25)
+            if center==-1:
+                center_t= (img.shape[0]-100, img.shape[1]//2)
+            image_RGB.append(manhole_process(img,center_t,height_t,width_t,color))
+    else:
+        height_t=height
+        width_t=width
+        center_t=center
+        if height==1:
+            height_t=image.shape[0]//25
+        if width==1:
+            width_t=int(image.shape[0]*3//25) 
+        if center==-1:
+            center= (image.shape[0]-100, image.shape[1]//2)
+        image_RGB= manhole_process(image,center_t,height_t,width_t,color)
+    return image_RGB
+
+
 err_aug_type='wrong augmentation function is defined'
 err_aug_list_type='aug_types should be a list of string function names'
 err_aug_volume='volume type can only be "same" or "expand"'
 def augment_random(image, aug_types="", volume='expand' ):
     
-    aug_types_all=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip"]
+    aug_types_all=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip","add_manhole"]
     if aug_types=="":
         aug_types=aug_types_all
     output=[]
