@@ -497,7 +497,7 @@ hp.visualize(aug_images,column=3,fig_size=(20,10))
 
 
 ```python
-aug_types=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn"]
+aug_types=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip"]
 dict_time={}
 import time
 for aug_type in aug_types:
@@ -519,19 +519,21 @@ print('Total time taken to create ',len(aug_types)*len(images),' augmented image
 ```
 
     Average Time taken per augmentaion function to process 1 image:
-    add_fog 0.28s
-    add_gravel 0.03s
-    random_brightness 0.05s
-    add_autumn 0.22s
-    add_speed 0.15s
-    add_snow 0.05s
+    add_shadow 0.02s
+    random_flip 0.00s
+    add_speed 0.16s
     add_sun_flare 0.08s
-    add_shadow 0.01s
-    add_rain 0.03s
+    add_rain 0.04s
+    random_brightness 0.05s
+    add_fog 0.30s
+    add_snow 0.05s
+    add_gravel 0.03s
+    add_autumn 0.23s
     -----------------------
-    Total no. of augmented images created: 81
+    Total no. of augmented images created: 90
     -----------------------
-    Total time taken to create  81  augmented images: 8.04s
+    Total time taken to create  90  augmented images: 8.61s
+
     
 
 **Note:** The load_images helper function resizes all images to 1280x720 and thus all returned images have the same dimensions. If original image dimensions are required please write a new load function
