@@ -465,6 +465,19 @@ hp.visualize(manhole_images, column=3)
 ![png](./README_Images/manhole.png)
 
 
+### correct_exposure
+
+**parameters**
+
+image: image or image list
+
+
+```python
+exposure_images= am.correct_exposure(images[0:3]) 
+hp.visualize(exposure_images, column=3)
+```
+
+
 #### If a series of augmentations is required from above types augment_random function can be handy
 
 ### augment_random
