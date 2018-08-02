@@ -814,7 +814,33 @@ def add_manhole(image,center=-1,color=(120,120,120),height=1,width=1, type='clos
         image_RGB= manhole_process(image,center_t,height_t,width_t,color)
     return image_RGB
 
+def exposure_process(image):
+    image= np.copy(image)
+    img_yuv = cv2.cvtColor(image, cv2.COLOR_BGR2YUV)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(4,4))
+    ones= np.ones(img_yuv[:,:,0].shape)
+    ones[img_yuv[:,:,0]>150]= 0.85
+    img_yuv[:,:,0]= img_yuv[:,:,0]*ones
 
+    img_yuv[:,:,0] = clahe.apply(img_yuv[:,:,0])
+    img_yuv[:,:,0] = cv2.equalizeHist(img_yuv[:,:,0])
+    img_yuv[:,:,0] = clahe.apply(img_yuv[:,:,0])
+
+    image_res = cv2.cvtColor(img_yuv, cv2.COLOR_YUV2BGR)
+    image_res= cv2.fastNlMeansDenoisingColored(image_res,None,3,3,7,21)
+    return image_res
+
+def correct_exposure(image):
+    verify_image(image)
+    if(is_list(image)):
+        image_RGB=[]
+        image_list=image
+        for img in image_list:
+            image_RGB.append(exposure_process(img))
+    else:
+        image_RGB= exposure_process(image)
+    return image_RGB
+            
 err_aug_type='wrong augmentation function is defined'
 err_aug_list_type='aug_types should be a list of string function names'
 err_aug_volume='volume type can only be "same" or "expand"'
