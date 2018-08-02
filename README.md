@@ -379,7 +379,7 @@ hp.visualize(speedy_images, column=3)
 
 **parameters**
 
-image: image or image list
+**image:** image or image list
 
 
 ```python
@@ -395,7 +395,7 @@ hp.visualize(fall_images, column=3)
 
 **parameters**
 
-image: image or image list
+**image:** image or image list
 
 
 ```python
@@ -411,7 +411,7 @@ hp.visualize(flipped_images, column=3)
 
 **parameters**
 
-image: image or image list
+**image:** image or image list
 
 
 ```python
@@ -427,7 +427,7 @@ hp.visualize(flipped_images, column=3)
 
 **parameters**
 
-image: image or image list
+**image:** image or image list
 
 
 ```python
@@ -443,17 +443,17 @@ hp.visualize(flipped_images, column=3)
 
 **parameters**
 
-image: image or image list
+**image:** image or image list
 
-center: center of the ellipse (x,y), default: bottom center of the image
+**center:** center of the ellipse (x,y), default: bottom center of the image
 
-color: rgb tuple, default: if type parameter not defined: (67,70,75), else: default color mentioned in type.
+**color:** rgb tuple, default: if type parameter not defined: (67,70,75), else: default color mentioned in type.
 
-height vertical dimension of the hole, int , default: 25th portion of the image height.
+**height:** vertical dimension of the hole, int , default: 25th portion of the image height.
 
-width: horizontal dimension of the hole, int, default: 3/25th portion of the image height.
+**width:** horizontal dimension of the hole, int, default: 3/25th portion of the image height.
 
-type: values in 'closed','open', default: 'closed'
+**type:** values in 'closed','open', default: 'closed'
 
 
 ```python
@@ -469,7 +469,7 @@ hp.visualize(manhole_images, column=3)
 
 **parameters**
 
-image: image or image list
+**image:** image or image list
 
 
 ```python
