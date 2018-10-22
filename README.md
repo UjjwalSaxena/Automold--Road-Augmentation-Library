@@ -8,7 +8,8 @@
 
 
 ```python
-import Automold as am
+#imports
+import Automold as am 
 import Helpers as hp
 ```
 
