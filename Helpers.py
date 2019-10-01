@@ -6,15 +6,14 @@ import matplotlib.pyplot as plt
 # import random
 import math
 
-
-
-
 err_not_np_img= "not a numpy array or list of numpy array" 
 err_img_arr_empty="Image array is empty"
 err_row_zero="No. of rows can't be <=0"
 err_column_zero="No. of columns can't be <=0"
 err_invalid_size="Not a valid size tuple (x,y)"
 err_caption_array_count="Caption array length doesn't matches the image array length"
+WIDTH = 1280
+HEIGHT = 720
 
 def is_numpy_array(x):
    
@@ -89,7 +88,7 @@ def load_images(path):
     images= glob.glob(path)
     for index in range(len(images)):
         image= cv2.cvtColor(cv2.imread(images[index]),cv2.COLOR_BGR2RGB)
-        image_list.append(cv2.resize(image,(1280,720)))
+        image_list.append(cv2.resize(image,(WIDTH, HEIGHT)))
      
     return image_list
 
