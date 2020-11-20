@@ -318,13 +318,9 @@ err_snow_coeff="Snow coeff can only be between 0 and 1"
 def snow_process(image,snow_coeff):
     image_HLS = cv2.cvtColor(image,cv2.COLOR_RGB2HLS) ## Conversion to HLS
     image_HLS = np.array(image_HLS, dtype = np.float64) 
-    brightness_coefficient = 2.5 
-    imshape = image.shape
-    snow_point=snow_coeff ## increase this for more snow
-    image_HLS[:,:,1][image_HLS[:,:,1]<snow_point] = image_HLS[:,:,1][image_HLS[:,:,1]<snow_point]*brightness_coefficient ## scale pixel values up for channel 1(Lightness)
-    image_HLS[:,:,1][image_HLS[:,:,1]>255]  = 255 ##Sets all values above 255 to 255
-    image_HLS = np.array(image_HLS, dtype = np.uint8)
-    image_RGB = cv2.cvtColor(image_HLS,cv2.COLOR_HLS2RGB) ## Conversion to RGB
+    rand = np.random.randint(225,255,(image_HLS[:,:,1].shape[0],image_HLS[:,:,1].shape[1])) #random snow particles ( just to give a realistic looks of snow )
+    image_HLS[:,:,1][image_HLS[:,:,1] > snow_coeff] = rand[image_HLS[:,:,1] > snow_coeff] #created this as snow has to settle on bright spots as they face the light ( greater than coefficient )
+    image_RGB = cv2.cvtColor(image_HLS, cv2.COLOR_HLS2BGR_FULL)
     return image_RGB
 
 def add_snow(image, snow_coeff=-1):
@@ -336,6 +332,7 @@ def add_snow(image, snow_coeff=-1):
         snow_coeff=random.uniform(0,1)
     snow_coeff*=255/2
     snow_coeff+=255/3
+    snow_coeff = 255 - snow_coeff
     if(is_list(image)):
         image_RGB=[]
         image_list=image
